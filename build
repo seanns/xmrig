@@ -1,0 +1,40 @@
+Ubuntu Build
+xmrig edited this page 10 days ago · 4 revisions
+ Pages 10
+Home
+API
+Build
+CentOS Build
+Fedora Build
+FreeBSD Build
+OS X Build
+Threads
+Ubuntu Build
+Windows Build
+Clone this wiki locally
+
+https://github.com/xmrig/xmrig.wiki.git
+ Clone in Desktop
+Ubuntu 16.04 Xenial Xerus
+sudo apt-get install git build-essential cmake libuv1-dev libmicrohttpd-dev
+git clone https://github.com/xmrig/xmrig.git
+cd xmrig
+mkdir build
+cd build
+cmake ..
+make
+gcc 7.1
+Optionally you can use gcc 7 to small performance increase.
+If command add-apt-repository not found install software-properties-common first.
+
+sudo add-apt-repository ppa:jonathonf/gcc-7.1
+sudo apt-get update
+sudo apt-get install gcc-7 g++-7
+When run cmake manually specify C and C++ compiler:
+
+cmake .. -DCMAKE_C_COMPILER=gcc-7 -DCMAKE_CXX_COMPILER=g++-7
+Additional CMake options
+-DWITH_LIBCPUID=OFF Disable libcpuid. Auto configuration of CPU after this will be very limited.
+-DWITH_AEON=OFF Disable CryptoNight-Lite support.
+-DWITH_HTTPD=OFF Build without built in http server and API.
+-DUV_LIBRARY=/usr/lib/x86_64-linux-gnu/libuv.a Use static libuv version.
